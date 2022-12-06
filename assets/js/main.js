@@ -1,7 +1,7 @@
 // CONFIGURATIONAL VARIABLES ============================================
 const sheetBestLink = 'https://sheet.best/api/sheets/99355b8f-b293-4c9a-9508-3aad59f0efac';
 const resultsSheet = 'https://docs.google.com/spreadsheets/d/1D8lHgs57NuZ03l-GRjQ-6HWYSaTLCU4r_xDw8dwBgYg/edit#gid=0';
-const siteBase = "/";
+const siteBase = "/quiz-app/";
 
 // VARIABLES ============================================================
 const btnNext = document.querySelector('.btn-next');
