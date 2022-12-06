@@ -14,18 +14,17 @@
     <meta property="og:type" content="website"/>
     <meta property="og:url" content="https://quiz.axela.network/"/>
     <link rel="canonical" href="https://quiz.axela.network/"/>
-    <title>Axela Quiz App</title>
-    <link rel="icon" href="assets/img/favicon/favicon.svg" sizes="32x32" />
-    <link rel="icon" href="assets/img/favicon/favicon.svg" sizes="192x192" />
-    <link rel="apple-touch-icon" href="assets/img/favicon/favicon.svg" />
-    <meta name="msapplication-TileImage" content="assets/img/favicon/favicon.svg" />
+    <title>Quiz App</title>
+    <link rel="icon" href="assets/img/favicon/favicon.png" sizes="32x32" />
     <link rel="stylesheet" href="assets/css/fonts.css">
     <link rel="stylesheet" href="assets/css/main.css">
 </head>
 <body>
     <div class="main-wrapper flex column">
         <header class="header flex center just-center">
-            <img src="assets/img/svg/logo.svg" alt="Logotype" class="header-logo-img">
+            <h3 class="quiz-name">
+                Опитування клієнтів
+            </h3>
         </header>
         <main class="main">
             <form class="main-form" id="mainForm">
@@ -119,7 +118,7 @@
                         <div class="container flex center">
                             <div class="question-number"></div>
                             <h3 class="question-name">
-                                Вкажіть ваше джерело трафіку
+                                Вкажіть улюблені соціальні медіа
                             </h3>
                             <p class="text-secondary">
                                 *(Доступний множинний вибір)
@@ -130,69 +129,45 @@
                         <div class="container">
                             <div class="form-group-wrapper flex wrap just-btwn">
                                 <div class="form-group checkbox">
-                                    <input type="checkbox" name="Traffic" value="Facebook" class="form-control checkbox" id="el-0401">
+                                    <input type="checkbox" name="SocialMedia" value="Facebook" class="form-control checkbox" id="el-0401">
                                     <label for="el-0401">
                                         Facebook
                                     </label>
                                 </div>
                                 <div class="form-group checkbox">
-                                    <input type="checkbox" name="Traffic" value="Google" class="form-control checkbox" id="el-0402">
+                                    <input type="checkbox" name="SocialMedia" value="Instagram" class="form-control checkbox" id="el-0402">
                                     <label for="el-0402">
-                                        Google
+                                        Instagram
                                     </label>
                                 </div>
                                 <div class="form-group checkbox">
-                                    <input type="checkbox" name="Traffic" value="Native (Teaser)" class="form-control checkbox" id="el-0403">
+                                    <input type="checkbox" name="SocialMedia" value="Telegram" class="form-control checkbox" id="el-0403">
                                     <label for="el-0403">
-                                        Native (Teaser)
-                                    </label>
-                                </div>
-                                <div class="form-group checkbox">
-                                    <input type="checkbox" name="Traffic" value="Email" class="form-control checkbox" id="el-0404">
-                                    <label for="el-0404">
-                                        Email
-                                    </label>
-                                </div>
-                                <div class="form-group checkbox">
-                                    <input type="checkbox" name="Traffic" value="Push" class="form-control checkbox" id="el-0405">
-                                    <label for="el-0405">
-                                        Push
-                                    </label>
-                                </div>
-                                <div class="form-group checkbox">
-                                    <input type="checkbox" name="Traffic" value="Pop" class="form-control checkbox" id="el-0406">
-                                    <label for="el-0406">
-                                        Pop
-                                    </label>
-                                </div>
-                                <div class="form-group checkbox">
-                                    <input type="checkbox" name="Traffic" value="In-app" class="form-control checkbox" id="el-0407">
-                                    <label for="el-0407">
-                                        In-app
-                                    </label>
-                                </div>
-                                <div class="form-group checkbox">
-                                    <input type="checkbox" name="Traffic" value="TikTok" class="form-control checkbox" id="el-0408">
-                                    <label for="el-0408">
-                                        TikTok
-                                    </label>
-                                </div>
-                                <div class="form-group checkbox">
-                                    <input type="checkbox" name="Traffic" value="Telegram" class="form-control checkbox" id="el-0409">
-                                    <label for="el-0409">
                                         Telegram
                                     </label>
                                 </div>
                                 <div class="form-group checkbox">
-                                    <input type="checkbox" name="Traffic" value="SMS" class="form-control checkbox" id="el-0410">
-                                    <label for="el-0410">
-                                        SMS
+                                    <input type="checkbox" name="SocialMedia" value="YouTube" class="form-control checkbox" id="el-0404">
+                                    <label for="el-0404">
+                                        YouTube
+                                    </label>
+                                </div>
+                                <div class="form-group checkbox">
+                                    <input type="checkbox" name="SocialMedia" value="Twitter" class="form-control checkbox" id="el-0407">
+                                    <label for="el-0407">
+                                        Twitter
+                                    </label>
+                                </div>
+                                <div class="form-group checkbox">
+                                    <input type="checkbox" name="SocialMedia" value="TikTok" class="form-control checkbox" id="el-0408">
+                                    <label for="el-0408">
+                                        TikTok
                                     </label>
                                 </div>
                                 <div class="form-group checkbox w-100">
-                                    <input type="checkbox" name="Traffic" value="Інше джерело трафіку" class="form-control checkbox" id="el-0411">
+                                    <input type="checkbox" name="SocialMedia" value="Інше" class="form-control checkbox" id="el-0411">
                                     <label for="el-0411">
-                                        Інше джерело трафіку
+                                        Інше
                                     </label>
                                 </div>
                             </div>
@@ -204,7 +179,7 @@
                         <div class="container flex center">
                             <div class="question-number"></div>
                             <h3 class="question-name">
-                                З якою вертикаллю працюєте?
+                                В якій галузі ви працюєте?
                             </h3>
                             <p class="text-secondary">
                                 *(Доступний множинний вибір)
@@ -215,51 +190,51 @@
                         <div class="container">
                             <div class="form-group-wrapper flex wrap just-btwn">
                                 <div class="form-group checkbox">
-                                    <input type="checkbox" name="Vertical" value="Forex / Crypto" class="form-control checkbox" id="el-0501">
+                                    <input type="checkbox" name="Employment" value="Юриспруденція" class="form-control checkbox" id="el-0501">
                                     <label for="el-0501">
-                                        Forex / Crypto
+                                        Юриспруденція
                                     </label>
                                 </div>
                                 <div class="form-group checkbox">
-                                    <input type="checkbox" name="Vertical" value="Gambling / Betting" class="form-control checkbox" id="el-0502">
+                                    <input type="checkbox" name="Employment" value="Державна служба" class="form-control checkbox" id="el-0502">
                                     <label for="el-0502">
-                                        Gambling / Betting
+                                        Державна служба
                                     </label>
                                 </div>
                                 <div class="form-group checkbox">
-                                    <input type="checkbox" name="Vertical" value="Adult / Dating" class="form-control checkbox" id="el-0503">
+                                    <input type="checkbox" name="Employment" value="Інформаційні технології" class="form-control checkbox" id="el-0503">
                                     <label for="el-0503">
-                                        Adult / Dating
+                                        Інформаційні технології
                                     </label>
                                 </div>
                                 <div class="form-group checkbox">
-                                    <input type="checkbox" name="Vertical" value="NFT" class="form-control checkbox" id="el-0504">
+                                    <input type="checkbox" name="Employment" value="Маркетинг" class="form-control checkbox" id="el-0504">
                                     <label for="el-0504">
-                                        NFT
+                                        Маркетинг
                                     </label>
                                 </div>
                                 <div class="form-group checkbox">
-                                    <input type="checkbox" name="Vertical" value="COD" class="form-control checkbox" id="el-0505">
+                                    <input type="checkbox" name="Employment" value="Охорона здоров'я" class="form-control checkbox" id="el-0505">
                                     <label for="el-0505">
-                                        COD
+                                        Охорона здоров'я
                                     </label>
                                 </div>
                                 <div class="form-group checkbox">
-                                    <input type="checkbox" name="Vertical" value="Insurance" class="form-control checkbox" id="el-0506">
+                                    <input type="checkbox" name="Employment" value="Сфера послуг" class="form-control checkbox" id="el-0506">
                                     <label for="el-0506">
-                                        Insurance
+                                        Сфера послуг
                                     </label>
                                 </div>
                                 <div class="form-group checkbox">
-                                    <input type="checkbox" name="Vertical" value="Gaming" class="form-control checkbox" id="el-0507">
+                                    <input type="checkbox" name="Employment" value="Виробництво" class="form-control checkbox" id="el-0507">
                                     <label for="el-0507">
-                                        Gaming
+                                        Виробництво
                                     </label>
                                 </div>
                                 <div class="form-group checkbox">
-                                    <input type="checkbox" name="Vertical" value="Other" class="form-control checkbox" id="el-0508">
+                                    <input type="checkbox" name="Employment" value="Інше" class="form-control checkbox" id="el-0508">
                                     <label for="el-0508">
-                                        Other
+                                        Інше
                                     </label>
                                 </div>
                             </div>
@@ -294,14 +269,14 @@
                         <div class="container flex center">
                             <div class="question-number"></div>
                             <h3 class="question-name">
-                                Вкажіть кількість баєрів у команді
+                                Вкажіть кількість співробітників у команді
                             </h3>
                         </div>
                     </div>
                     <div class="answer-wrapper">
                         <div class="container">
                             <div class="form-group">
-                                <input type="number" name="Team" placeholder="Введіть кількість баєрів" class="form-control text number" id="el-0701">
+                                <input type="number" name="Team" placeholder="Введіть кількість співробітників" class="form-control text number" id="el-0701">
                                 <label for="el-0701"></label>
                             </div>
                         </div>

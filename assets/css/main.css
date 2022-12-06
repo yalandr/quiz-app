@@ -135,12 +135,12 @@ a {
 .form-control.email:focus,
 .form-control.adv-input:focus,
 .form-control.number:focus {
-    border: 1px solid #F19422 !important;
+    border: 1px solid #39BD88 !important;
 }
 .form-control.text.valid,
 .form-control.email.valid,
 .form-control.number.valid {
-    border: 1px solid #F19422;
+    border: 1px solid #39BD88;
     background-image: url(../img/svg/checked-orange.svg);
     background-size: 1.5rem;
     background-repeat: no-repeat;
@@ -190,7 +190,7 @@ a {
     margin-right: 1rem;
 }
 .form-group.radio input:checked~label {
-    border: 1px solid #F19422;
+    border: 1px solid #39BD88;
 }
 .form-group.radio input:checked~label::before {
     background-image: url('../img/svg/checked-orange.svg');
@@ -248,7 +248,7 @@ a {
     margin-right: 1rem;
 }
 .form-group.checkbox input:checked~label {
-    border: 1px solid #F19422;
+    border: 1px solid #39BD88;
 }
 .form-group.checkbox input:checked~label::before {
     background-image: url('../img/svg/checked-orange.svg');
@@ -268,8 +268,8 @@ a {
     font-size: 1rem;
     border-radius: 8px;
     background-color: transparent;
-    border: 1px solid #F19422;
-    color: #F19422;
+    border: 1px solid #39BD88;
+    color: #39BD88;
     margin-bottom: 1.5rem;
 }
 .delete-btn {
@@ -359,7 +359,7 @@ a {
     justify-content: center;
     width: 14.5rem;
     min-height: 3rem;
-    background: #FFFC52;
+    background: #4DBCEC;
     border-radius: 32px;
     font-family: var(--font-primary), sans-serif;
     font-style: normal;
@@ -433,7 +433,7 @@ a {
 }
 .footer-text span {
     font-weight: 700;
-    color: #F19422;
+    color: #39BD88;
 }
 .progress-bar {
     position: relative;
@@ -451,10 +451,10 @@ a {
     width: 0;
     background: repeating-linear-gradient(
     -55deg,
-    #EE9534,
-    #EE9534 6px,
-    #FBB564 6px,
-    #FBB564 12px
+    #39E471,
+    #39E471 6px,
+    #84E7A5 6px,
+    #84E7A5 12px
     );
     transition: .3s;
 }

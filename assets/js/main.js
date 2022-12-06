@@ -1,5 +1,6 @@
 // CONFIGURATIONAL VARIABLES ============================================
 const sheetBestLink = 'https://sheet.best/api/sheets/99355b8f-b293-4c9a-9508-3aad59f0efac';
+const resultsSheet = 'https://docs.google.com/spreadsheets/d/1D8lHgs57NuZ03l-GRjQ-6HWYSaTLCU4r_xDw8dwBgYg/edit#gid=0';
 const siteBase = "/";
 
 // VARIABLES ============================================================
@@ -157,17 +158,17 @@ mainForm.onchange = (event) => {
 
     if (event.target.type === "checkbox") {
 
-        quizObj.Traffic = [];
+        quizObj.SocialMedia = [];
         for (let i = 0; i < inputCheckbox.length; i++) {
-            if (inputCheckbox[i].checked && inputCheckbox[i].name === 'Traffic') {
-                quizObj.Traffic.push(inputCheckbox[i].value);
+            if (inputCheckbox[i].checked && inputCheckbox[i].name === 'SocialMedia') {
+                quizObj.SocialMedia.push(inputCheckbox[i].value);
             }
         }
         
-        quizObj.Vertical = [];
+        quizObj.Employment = [];
         for (let i = 0; i < inputCheckbox.length; i++) {
-            if (inputCheckbox[i].checked && inputCheckbox[i].name === 'Vertical') {
-                quizObj.Vertical.push(inputCheckbox[i].value);
+            if (inputCheckbox[i].checked && inputCheckbox[i].name === 'Employment') {
+                quizObj.Employment.push(inputCheckbox[i].value);
             }
         }
     }
@@ -234,8 +235,8 @@ const handleSubmit = () => {
         Connection: quizObj.Connection,
         Login: quizObj.Login,
         Email: quizObj.Email,
-        Traffic: quizObj.Traffic.join(', '),
-        Vertical: quizObj.Vertical.join(', '),
+        SocialMedia: quizObj.SocialMedia.join(', '),
+        Employment: quizObj.Employment.join(', '),
         Advertiser: quizObj.Advertiser.join(', '),
         Team: quizObj.Team
     }
@@ -250,10 +251,10 @@ const handleSubmit = () => {
                 Дякуємо!
             </h2>
             <p class="thankyou-text">
-                Ми отримали вашу заявку та зв’яжемося з вами найближчим часом
+                Ми отримали ваші відповіді та зв’яжемося з вами найближчим часом
             </p>
-            <a href="https://axela.network/" class="btn btn-link">
-                Перейти на сайт а́xela
+            <a href="${resultsSheet}" class="btn btn-link">
+                Подивитись результати
             </a>
         `);
     } else {
