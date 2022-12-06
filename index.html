@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="ua">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, viewport-fit=cover" />
+    <meta name="description" content="Axela Quiz"/>
+    <meta name="keywords" content="Axela Quiz, Axela, Affiliate Network"/>
+    <meta property="og:title" content="Axela Quiz"/>
+    <meta property="og:description" content="Axela Quiz"/>
+    <meta property="og:image" content="assets/img/png/og-image.png"/>
+    <meta property="og:image:width" content="450"/>
+    <meta property="og:image:height" content="450"/>
+    <meta property="og:type" content="website"/>
+    <meta property="og:url" content="https://quiz.axela.network/"/>
+    <link rel="canonical" href="https://quiz.axela.network/"/>
+    <title>Axela Quiz App</title>
+    <link rel="icon" href="assets/img/favicon/favicon.svg" sizes="32x32" />
+    <link rel="icon" href="assets/img/favicon/favicon.svg" sizes="192x192" />
+    <link rel="apple-touch-icon" href="assets/img/favicon/favicon.svg" />
+    <meta name="msapplication-TileImage" content="assets/img/favicon/favicon.svg" />
+    <link rel="stylesheet" href="assets/css/fonts.css">
+    <link rel="stylesheet" href="assets/css/main.css">
+</head>
+<body>
+    <div class="main-wrapper flex column">
+        <header class="header flex center just-center">
+            <img src="assets/img/svg/logo.svg" alt="Logotype" class="header-logo-img">
+        </header>
+        <main class="main">
+            <form class="main-form" id="mainForm">
+                <div class="quiz-step flex column active">
+                    <div class="question-wrapper">
+                        <div class="container flex center">
+                            <div class="question-number"></div>
+                            <h3 class="question-name">
+                                Вкажіть ваше ім’я або нікнейм
+                            </h3>
+                        </div>
+                    </div>
+                    <div class="answer-wrapper">
+                        <div class="container">
+                            <div class="form-group">
+                                <input type="text" name="Name" placeholder="Введіть ваше ім’я або нікнейм" class="form-control text" id="el-0101" required>
+                                <label for="el-0101"></label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="quiz-step flex column">
+                    <div class="question-wrapper">
+                        <div class="container flex center">
+                            <div class="question-number"></div>
+                            <h3 class="question-name">
+                                Вкажіть зручний метод зв'язку
+                            </h3>
+                        </div>
+                    </div>
+                    <div class="answer-wrapper">
+                        <div class="container">
+                            <div class="form-group-wrapper flex wrap just-btwn">
+                                <div class="form-group radio">
+                                    <input type="radio" name="Connection" value="Skype" class="form-control radio" id="el-0201">
+                                    <label for="el-0201">
+                                        Skype
+                                    </label>
+                                </div>
+                                <div class="form-group radio">
+                                    <input type="radio" name="Connection" value="Telegram" class="form-control radio" id="el-0202">
+                                    <label for="el-0202">
+                                        Telegram
+                                    </label>
+                                </div>
+                                <div class="form-group radio">
+                                    <input type="radio" name="Connection" value="WeChat" class="form-control radio" id="el-0203">
+                                    <label for="el-0203">
+                                        WeChat
+                                    </label>
+                                </div>
+                                <div class="form-group radio">
+                                    <input type="radio" name="Connection" value="WhatsApp" class="form-control radio" id="el-0204">
+                                    <label for="el-0204">
+                                        WhatsApp
+                                    </label>
+                                </div>
+                            </div>
+                            <div class="addition-input-wrapper">
+                                <h4 class="addition-input-heading">
+                                    Ваш логін
+                                </h4>
+                                <div class="form-group">
+                                    <input type="text" name="Login" placeholder="Введіть ваш логін" class="form-control text" id="el-0205" required>
+                                    <label for="el-0205"></label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="quiz-step flex column">
+                    <div class="question-wrapper">
+                        <div class="container flex center">
+                            <div class="question-number"></div>
+                            <h3 class="question-name">
+                                Вкажіть ваш email
+                            </h3>
+                        </div>
+                    </div>
+                    <div class="answer-wrapper">
+                        <div class="container">
+                            <div class="form-group">
+                                <input type="email" name="Email" placeholder="Введіть ваш email" class="form-control email" id="el-0301">
+                                <label for="el-0301"></label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="quiz-step flex column">
+                    <div class="question-wrapper">
+                        <div class="container flex center">
+                            <div class="question-number"></div>
+                            <h3 class="question-name">
+                                Вкажіть ваше джерело трафіку
+                            </h3>
+                            <p class="text-secondary">
+                                *(Доступний множинний вибір)
+                            </p>
+                        </div>
+                    </div>
+                    <div class="answer-wrapper">
+                        <div class="container">
+                            <div class="form-group-wrapper flex wrap just-btwn">
+                                <div class="form-group checkbox">
+                                    <input type="checkbox" name="Traffic" value="Facebook" class="form-control checkbox" id="el-0401">
+                                    <label for="el-0401">
+                                        Facebook
+                                    </label>
+                                </div>
+                                <div class="form-group checkbox">
+                                    <input type="checkbox" name="Traffic" value="Google" class="form-control checkbox" id="el-0402">
+                                    <label for="el-0402">
+                                        Google
+                                    </label>
+                                </div>
+                                <div class="form-group checkbox">
+                                    <input type="checkbox" name="Traffic" value="Native (Teaser)" class="form-control checkbox" id="el-0403">
+                                    <label for="el-0403">
+                                        Native (Teaser)
+                                    </label>
+                                </div>
+                                <div class="form-group checkbox">
+                                    <input type="checkbox" name="Traffic" value="Email" class="form-control checkbox" id="el-0404">
+                                    <label for="el-0404">
+                                        Email
+                                    </label>
+                                </div>
+                                <div class="form-group checkbox">
+                                    <input type="checkbox" name="Traffic" value="Push" class="form-control checkbox" id="el-0405">
+                                    <label for="el-0405">
+                                        Push
+                                    </label>
+                                </div>
+                                <div class="form-group checkbox">
+                                    <input type="checkbox" name="Traffic" value="Pop" class="form-control checkbox" id="el-0406">
+                                    <label for="el-0406">
+                                        Pop
+                                    </label>
+                                </div>
+                                <div class="form-group checkbox">
+                                    <input type="checkbox" name="Traffic" value="In-app" class="form-control checkbox" id="el-0407">
+                                    <label for="el-0407">
+                                        In-app
+                                    </label>
+                                </div>
+                                <div class="form-group checkbox">
+                                    <input type="checkbox" name="Traffic" value="TikTok" class="form-control checkbox" id="el-0408">
+                                    <label for="el-0408">
+                                        TikTok
+                                    </label>
+                                </div>
+                                <div class="form-group checkbox">
+                                    <input type="checkbox" name="Traffic" value="Telegram" class="form-control checkbox" id="el-0409">
+                                    <label for="el-0409">
+                                        Telegram
+                                    </label>
+                                </div>
+                                <div class="form-group checkbox">
+                                    <input type="checkbox" name="Traffic" value="SMS" class="form-control checkbox" id="el-0410">
+                                    <label for="el-0410">
+                                        SMS
+                                    </label>
+                                </div>
+                                <div class="form-group checkbox w-100">
+                                    <input type="checkbox" name="Traffic" value="Інше джерело трафіку" class="form-control checkbox" id="el-0411">
+                                    <label for="el-0411">
+                                        Інше джерело трафіку
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="quiz-step flex column">
+                    <div class="question-wrapper">
+                        <div class="container flex center">
+                            <div class="question-number"></div>
+                            <h3 class="question-name">
+                                З якою вертикаллю працюєте?
+                            </h3>
+                            <p class="text-secondary">
+                                *(Доступний множинний вибір)
+                            </p>
+                        </div>
+                    </div>
+                    <div class="answer-wrapper">
+                        <div class="container">
+                            <div class="form-group-wrapper flex wrap just-btwn">
+                                <div class="form-group checkbox">
+                                    <input type="checkbox" name="Vertical" value="Forex / Crypto" class="form-control checkbox" id="el-0501">
+                                    <label for="el-0501">
+                                        Forex / Crypto
+                                    </label>
+                                </div>
+                                <div class="form-group checkbox">
+                                    <input type="checkbox" name="Vertical" value="Gambling / Betting" class="form-control checkbox" id="el-0502">
+                                    <label for="el-0502">
+                                        Gambling / Betting
+                                    </label>
+                                </div>
+                                <div class="form-group checkbox">
+                                    <input type="checkbox" name="Vertical" value="Adult / Dating" class="form-control checkbox" id="el-0503">
+                                    <label for="el-0503">
+                                        Adult / Dating
+                                    </label>
+                                </div>
+                                <div class="form-group checkbox">
+                                    <input type="checkbox" name="Vertical" value="NFT" class="form-control checkbox" id="el-0504">
+                                    <label for="el-0504">
+                                        NFT
+                                    </label>
+                                </div>
+                                <div class="form-group checkbox">
+                                    <input type="checkbox" name="Vertical" value="COD" class="form-control checkbox" id="el-0505">
+                                    <label for="el-0505">
+                                        COD
+                                    </label>
+                                </div>
+                                <div class="form-group checkbox">
+                                    <input type="checkbox" name="Vertical" value="Insurance" class="form-control checkbox" id="el-0506">
+                                    <label for="el-0506">
+                                        Insurance
+                                    </label>
+                                </div>
+                                <div class="form-group checkbox">
+                                    <input type="checkbox" name="Vertical" value="Gaming" class="form-control checkbox" id="el-0507">
+                                    <label for="el-0507">
+                                        Gaming
+                                    </label>
+                                </div>
+                                <div class="form-group checkbox">
+                                    <input type="checkbox" name="Vertical" value="Other" class="form-control checkbox" id="el-0508">
+                                    <label for="el-0508">
+                                        Other
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="quiz-step flex column">
+                    <div class="question-wrapper">
+                        <div class="container flex center no-wrap">
+                            <div class="question-number"></div>
+                            <h3 class="question-name">
+                                Вкажіть рекламодавців, з якими працюєте
+                            </h3>
+                        </div>
+                    </div>
+                    <div class="answer-wrapper">
+                        <div class="container">
+                            <p class="text-secondary list-message">
+                                Тут буде перелік рекламодавців ...
+                            </p>
+                            <ul class="added-items-list"></ul>
+                            <div class="form-group">
+                                <input type="text" name="Advertiser" placeholder="Введіть назви рекламодавців" class="form-control adv-input" id="el-0601">
+                                <label for="el-0601"></label>
+                                <button class="add-btn" title="Додати"></button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="quiz-step flex column">
+                    <div class="question-wrapper">
+                        <div class="container flex center">
+                            <div class="question-number"></div>
+                            <h3 class="question-name">
+                                Вкажіть кількість баєрів у команді
+                            </h3>
+                        </div>
+                    </div>
+                    <div class="answer-wrapper">
+                        <div class="container">
+                            <div class="form-group">
+                                <input type="number" name="Team" placeholder="Введіть кількість баєрів" class="form-control text number" id="el-0701">
+                                <label for="el-0701"></label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </main>
+        <footer class="footer">
+            <div class="control-panel">
+                <div class="container flex center just-btwn">
+                    <img src="assets/img/svg/arrow-back.svg" alt="Arrow back" class="arrow-back-img">
+                    <div class="btn-wrapper flex center">
+                        <button class="btn btn-next flex center just-center" disabled>
+                            Наступне питання 
+                            <img src="assets/img/svg/arrow-next.svg" alt="Arrow next" class="arrow-next-img">
+                        </button>
+                        <p class="text-secondary">
+                            Або натисніть <br>
+                            <strong>Enter</strong>
+                        </p>
+                    </div>
+                    <div class="notification">
+                        Ок, натисніть, <br>
+                        щоб завершити <br>
+                        <img src="assets/img/png/down-arrow.png" alt="Arrow down" class="arrow-down">
+                    </div>
+                </div>
+            </div>
+            <div class="progress-wrapper">
+                <div class="container flex center">
+                    <p class="footer-text flex center">
+                        Готово:&nbsp;<span class="progress-percentage">0%</span>
+                    </p>
+                    <div class="progress-bar">
+                        <div class="progress-bar-line"></div>
+                    </div>
+                </div>
+            </div>
+        </footer>
+        <div class="message-modal flex center just-center">
+            <div class="message-modal-content">
+                <p class="message-text"></p>
+            </div>
+        </div>
+    </div>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script src="assets/js/main.js"></script>
+</body>
+</html>
