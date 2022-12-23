@@ -1,6 +1,9 @@
 <template>
     <header class="header flex center just-center">
-        <img src="../assets/img/svg/logo.svg" alt="Logotype" class="header-logo-img">
+        <!-- <img src="../assets/img/svg/logo.svg" alt="Logotype" class="header-logo-img"> -->
+        <h2>
+            quiz app
+        </h2>
     </header>
 </template>
 

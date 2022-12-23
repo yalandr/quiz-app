@@ -61,7 +61,7 @@ export default {
 }
 .footer-text span {
   font-weight: 700;
-  color: #F19422;
+  color: #b8e994;
 }
 .progress-bar {
   position: relative;

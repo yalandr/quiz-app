@@ -17,8 +17,8 @@ export default {
     justify-content: center;
     width: 14.5rem;
     min-height: 3rem;
-    background: #FFFC52;
-    border-radius: 32px;
+    background: #0be881;
+    border-radius: 8px;
     font-family: var(--font-primary), sans-serif;
     font-style: normal;
     font-weight: 700;
