@@ -125,6 +125,7 @@ export default {
         isModalActive: false,
         isButtonNextDisabled: true,
         currentQuestion: 0,
+        inputCheckboxChecked: [],
         quizSteps: [
             {
             number: 1,
@@ -526,6 +527,21 @@ export default {
                 e.target.classList.remove('valid');
             }
         }
+        if (e.target.type == "checkbox") {
+            if (e.target.checked) {
+                this.btnAble();
+            // isInputValidated = true;
+            this.inputCheckboxChecked.push(e.target.value);
+            console.log(this.inputCheckboxChecked);
+        } else {
+            this.inputCheckboxChecked.splice(this.inputCheckboxChecked.indexOf(e.target.value), 1);
+            console.log(this.inputCheckboxChecked);
+            if (this.inputCheckboxChecked.length === 0) {
+                // isInputValidated = false;
+                this.btnDisable();
+            }
+        }
+        }
     },
     inputClickHandler(e) {
         if (e.target.type == "text") {
@@ -537,7 +553,7 @@ export default {
         } else if (e.target.type == "email") {
             console.log('email');
         } else if (e.target.type == "checkbox") {
-            console.log('checkbox');
+            
         } else if (e.target.type == "number") {
             console.log('number');
         }
@@ -547,7 +563,7 @@ export default {
             this.quizSteps[this.currentQuestion].isActive = false;
             this.quizSteps[this.currentQuestion + 1].isActive = true;
             this.btnDisable();
-            this.currentQuestion =+ 1;
+            this.currentQuestion += 1;
             this.isChecked = false;
             console.log(this.currentQuestion);
         } else {
