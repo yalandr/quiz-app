@@ -2,7 +2,11 @@
 <div class="main-wrapper flex column">
   <Header />
   <main class="main">
-            <form class="main-form" id="mainForm">
+            <form 
+                class="main-form" 
+                id="mainForm" 
+                @change="dataRecording"
+            >
                 <div 
                     v-for="quizStep in quizSteps"
                     v-show="quizStep.isActive" 
@@ -73,6 +77,9 @@
         <footer class="footer">
             <div class="control-panel">
                 <div class="container flex center just-btwn">
+                    <p v-if="isNotTheFirstQuestion" @click="switchToPreviousQuestion">
+                        back
+                    </p>
                     <!-- <img src="assets/img/svg/arrow-back.svg" alt="Arrow back" class="arrow-back-img"> -->
                     <div class="btn-wrapper flex center">
                         <button 
@@ -125,7 +132,12 @@ export default {
         isModalActive: false,
         isButtonNextDisabled: true,
         currentQuestion: 0,
-        inputCheckboxChecked: [],
+        isNotTheFirstQuestion: false,
+        trafficCheckboxesChecked: [],
+        verticalCheckboxesChecked: [],
+        question: '',
+        answer: '',
+        quizObject: {},
         quizSteps: [
             {
             number: 1,
@@ -509,7 +521,7 @@ export default {
         this.$el.querySelector('.btn.btn-next').style.opacity = '0.5';
     },
     inputChanging(e) {
-        if (e.target.type == "text") {
+        if (e.target.type === "text") {
             if (e.target.value.trim() !== '' && e.target.value.trim() !== ' ') {
                 this.btnAble();
                 e.target.classList.add('valid');
@@ -518,7 +530,7 @@ export default {
                 e.target.classList.remove('valid');
             }
         }
-        if (e.target.type == "email") {
+        if (e.target.type === "email") {
             if (e.target.value.trim() !== '' && e.target.value.trim() !== ' ' && e.target.value.includes('@')) {
                 this.btnAble();
                 e.target.classList.add('valid');
@@ -527,20 +539,30 @@ export default {
                 e.target.classList.remove('valid');
             }
         }
-        if (e.target.type == "checkbox") {
-            if (e.target.checked) {
+        if (e.target.type === "checkbox") {
+            if (e.target.checked && e.target.name === "Traffic") {
+                console.log("Traffic");
                 this.btnAble();
-            // isInputValidated = true;
-            this.inputCheckboxChecked.push(e.target.value);
-            console.log(this.inputCheckboxChecked);
-        } else {
-            this.inputCheckboxChecked.splice(this.inputCheckboxChecked.indexOf(e.target.value), 1);
-            console.log(this.inputCheckboxChecked);
-            if (this.inputCheckboxChecked.length === 0) {
-                // isInputValidated = false;
-                this.btnDisable();
+                // this.isInputValidated = true;
+                this.trafficCheckboxesChecked.push(e.target.value);
+            } else {
+                this.trafficCheckboxesChecked.splice(this.trafficCheckboxesChecked.indexOf(e.target.value), 1);
+                if (this.trafficCheckboxesChecked.length === 0) {
+                    // this.isInputValidated = false;
+                    this.btnDisable();
+                }
             }
-        }
+            if (e.target.checked && e.target.name === "Vertical") {
+                this.btnAble();
+                // isInputValidated = true;
+                this.verticalCheckboxesChecked.push(e.target.value);
+            } else {
+                this.verticalCheckboxesChecked.splice(this.verticalCheckboxesChecked.indexOf(e.target.value), 1);
+                if (this.verticalCheckboxesChecked.length === 0) {
+                    // isInputValidated = false;
+                    this.btnDisable();
+                }
+            }
         }
     },
     inputClickHandler(e) {
@@ -553,7 +575,7 @@ export default {
         } else if (e.target.type == "email") {
             console.log('email');
         } else if (e.target.type == "checkbox") {
-            
+            console.log(e.target.name);
         } else if (e.target.type == "number") {
             console.log('number');
         }
@@ -565,11 +587,41 @@ export default {
             this.btnDisable();
             this.currentQuestion += 1;
             this.isChecked = false;
+            this.isNotTheFirstQuestion = true;
             console.log(this.currentQuestion);
         } else {
             console.log('no switch!')
         }
+    },
+    switchToPreviousQuestion() {
+        if (this.quizSteps[this.currentQuestion].number > 1) {
+            this.quizSteps[this.currentQuestion].isActive = false;
+            this.quizSteps[this.currentQuestion - 1].isActive = true;
+            this.btnDisable();
+            this.currentQuestion -= 1;
+            this.isChecked = false;
+            if (this.quizSteps[this.currentQuestion].number === 1) {
+                this.isNotTheFirstQuestion = false;
+            }
+            console.log(this.currentQuestion);
+        } else {
+            return false;
+        }
+    },
+    dataRecording(event) {
+        this.question = event.target.name;
+        this.answer = event.target.value.trim();
+        this.quizObject[this.question] = this.answer;
 
+        if (event.target.name === "Traffic") {
+            this.quizObject[this.question] = this.trafficCheckboxesChecked; 
+        }
+
+        if (event.target.name === "Vertical") {
+            this.quizObject[this.question] = this.verticalCheckboxesChecked; 
+        }
+
+        console.table(this.quizObject);
     }
   }
 }
