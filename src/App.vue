@@ -541,25 +541,21 @@ export default {
         }
         if (e.target.type === "checkbox") {
             if (e.target.checked && e.target.name === "Traffic") {
-                console.log("Traffic");
+                console.log("Traffic changed");
                 this.btnAble();
-                // this.isInputValidated = true;
                 this.trafficCheckboxesChecked.push(e.target.value);
             } else {
                 this.trafficCheckboxesChecked.splice(this.trafficCheckboxesChecked.indexOf(e.target.value), 1);
                 if (this.trafficCheckboxesChecked.length === 0) {
-                    // this.isInputValidated = false;
                     this.btnDisable();
                 }
             }
             if (e.target.checked && e.target.name === "Vertical") {
                 this.btnAble();
-                // isInputValidated = true;
                 this.verticalCheckboxesChecked.push(e.target.value);
             } else {
                 this.verticalCheckboxesChecked.splice(this.verticalCheckboxesChecked.indexOf(e.target.value), 1);
                 if (this.verticalCheckboxesChecked.length === 0) {
-                    // isInputValidated = false;
                     this.btnDisable();
                 }
             }
@@ -575,7 +571,7 @@ export default {
         } else if (e.target.type == "email") {
             console.log('email');
         } else if (e.target.type == "checkbox") {
-            console.log(e.target.name);
+            this.btnAble();
         } else if (e.target.type == "number") {
             console.log('number');
         }
@@ -587,6 +583,7 @@ export default {
             this.btnDisable();
             this.currentQuestion += 1;
             this.isChecked = false;
+            this.isInputValidated = false;
             this.isNotTheFirstQuestion = true;
             console.log(this.currentQuestion);
         } else {
