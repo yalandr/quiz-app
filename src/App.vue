@@ -31,7 +31,20 @@
                             <p class="text-secondary list-message" v-if="quizStep.isList">
                                 Тут буде перелік рекламодавців ...
                             </p>
-                            <ul class="added-items-list" v-if="quizStep.isList"></ul>
+                            <ul class="added-items-list" v-if="quizStep.isList">
+                                <li 
+                                    class="added-list-item flex center just-btwn"
+                                    v-for="addedItem in addedItemsList"
+                                    :key="addedItem.id"
+                                >
+                                    {{ addedItem.value }}
+                                    <button 
+                                        class="delete-btn flex center just-center" 
+                                        title="Delete"
+                                        @click.prevent="deleteAddedItem"
+                                    ></button>
+                                </li>
+                            </ul>
                             <div :class="quizStep.inputWrapperClass">
                                 <div v-for="input in quizStep.inputs" :key="input.id" :class="input.groupClass">
                                     <input 
@@ -145,375 +158,376 @@ export default {
         answer: '',
         quizObject: {},
         isAddBtnDisabled: true,
+        addedItemsList: [],
         quizSteps: [
+            // {
+            //     number: 1,
+            //     question: "Вкажіть ваше ім’я або нікнейм",
+            //     class: "quiz-step flex column",
+            //     inputWrapperClass: "null",
+            //     isMultiple: false,
+            //     isActive: true,
+            //     inputs: [
+            //         {
+            //             id: 'el-0101',
+            //             type: 'text',
+            //             name: 'Name',
+            //             placeholder: "Введіть ваше ім’я або нікнейм",
+            //             groupClass: "form-group",
+            //             inputClass: "form-control text",
+            //             isRequired: true,
+            //             value: null,
+            //             checked: this.isChecked
+            //         }
+            //     ]
+            // },
+            // {
+            // number: 2,
+            // question: "Вкажіть зручний метод зв'язку",
+            // class: "quiz-step flex column",
+            // inputWrapperClass: "form-group-wrapper flex wrap just-btwn",
+            // isMultiple: false,
+            // isActive: false,
+            // inputs: [
+            //     {
+            //         id: 'el-0201',
+            //         type: 'radio',
+            //         name: 'Connection',
+            //         placeholder: null,
+            //         groupClass: "form-group radio",
+            //         inputClass: "form-control radio",
+            //         isRequired: false,
+            //         value: "Skype",
+            //         checked: this.isChecked
+            //     },
+            //     {
+            //         id: 'el-0202',
+            //         type: 'radio',
+            //         name: 'Connection',
+            //         placeholder: null,
+            //         groupClass: "form-group radio",
+            //         inputClass: "form-control radio",
+            //         isRequired: false,
+            //         value: "Telegram",
+            //         checked: this.isChecked
+            //     },
+            //     {
+            //         id: 'el-0203',
+            //         type: 'radio',
+            //         name: 'Connection',
+            //         placeholder: null,
+            //         groupClass: "form-group radio",
+            //         inputClass: "form-control radio",
+            //         isRequired: false,
+            //         value: "WeChat",
+            //         checked: this.isChecked
+            //     },
+            //     {
+            //         id: 'el-0204',
+            //         type: 'radio',
+            //         name: 'Connection',
+            //         placeholder: null,
+            //         groupClass: "form-group radio",
+            //         inputClass: "form-control radio",
+            //         isRequired: false,
+            //         value: "WhatsApp",
+            //         checked: this.isChecked
+            //     },
+            // ]
+            // },
+            // {
+            // number: 3,
+            // question: "Вкажіть ваш email",
+            // class: "quiz-step flex column",
+            // inputWrapperClass: "null",
+            // isMultiple: false,
+            // isActive: false,
+            // inputs: [
+            //     {
+            //         id: 'el-0301',
+            //         type: 'email',
+            //         name: 'Email',
+            //         placeholder: "Введіть ваш email",
+            //         groupClass: "form-group",
+            //         inputClass: "form-control email",
+            //         isRequired: true,
+            //         value: null,
+            //         checked: this.isChecked
+            //     }
+            // ]
+            // },
+            // {
+            // number: 4,
+            // question: "Вкажіть ваше джерело трафіку",
+            // class: "quiz-step flex column",
+            // inputWrapperClass: "form-group-wrapper flex wrap just-btwn",
+            // isMultiple: true,
+            // isActive: false,
+            // inputs: [
+            //     {
+            //         id: 'el-0401',
+            //         type: 'checkbox',
+            //         name: 'Traffic',
+            //         placeholder: null,
+            //         groupClass: "form-group checkbox",
+            //         inputClass: "form-control checkbox",
+            //         isRequired: false,
+            //         value: "Facebook",
+            //         checked: this.isChecked
+            //     },
+            //     {
+            //         id: 'el-0402',
+            //         type: 'checkbox',
+            //         name: 'Traffic',
+            //         placeholder: null,
+            //         groupClass: "form-group checkbox",
+            //         inputClass: "form-control checkbox",
+            //         isRequired: false,
+            //         value: "Google",
+            //         checked: this.isChecked
+            //     },
+            //     {
+            //         id: 'el-0403',
+            //         type: 'checkbox',
+            //         name: 'Traffic',
+            //         placeholder: null,
+            //         groupClass: "form-group checkbox",
+            //         inputClass: "form-control checkbox",
+            //         isRequired: false,
+            //         value: "Native (Teaser)",
+            //         checked: this.isChecked
+            //     },
+            //     {
+            //         id: 'el-0404',
+            //         type: 'checkbox',
+            //         name: 'Traffic',
+            //         placeholder: null,
+            //         groupClass: "form-group checkbox",
+            //         inputClass: "form-control checkbox",
+            //         isRequired: false,
+            //         value: "Email",
+            //         checked: this.isChecked
+            //     },
+            //     {
+            //         id: 'el-0405',
+            //         type: 'checkbox',
+            //         name: 'Traffic',
+            //         placeholder: null,
+            //         groupClass: "form-group checkbox",
+            //         inputClass: "form-control checkbox",
+            //         isRequired: false,
+            //         value: "Push",
+            //         checked: this.isChecked
+            //     },
+            //     {
+            //         id: 'el-0406',
+            //         type: 'checkbox',
+            //         name: 'Traffic',
+            //         placeholder: null,
+            //         groupClass: "form-group checkbox",
+            //         inputClass: "form-control checkbox",
+            //         isRequired: false,
+            //         value: "Pop",
+            //         checked: this.isChecked
+            //     },
+            //     {
+            //         id: 'el-0407',
+            //         type: 'checkbox',
+            //         name: 'Traffic',
+            //         placeholder: null,
+            //         groupClass: "form-group checkbox",
+            //         inputClass: "form-control checkbox",
+            //         isRequired: false,
+            //         value: "In-app",
+            //         checked: this.isChecked
+            //     },
+            //     {
+            //         id: 'el-0408',
+            //         type: 'checkbox',
+            //         name: 'Traffic',
+            //         placeholder: null,
+            //         groupClass: "form-group checkbox",
+            //         inputClass: "form-control checkbox",
+            //         isRequired: false,
+            //         value: "TikTok",
+            //         checked: this.isChecked
+            //     },
+            //     {
+            //         id: 'el-0409',
+            //         type: 'checkbox',
+            //         name: 'Traffic',
+            //         placeholder: null,
+            //         groupClass: "form-group checkbox",
+            //         inputClass: "form-control checkbox",
+            //         isRequired: false,
+            //         value: "Telegram",
+            //         checked: this.isChecked
+            //     },
+            //     {
+            //         id: 'el-0410',
+            //         type: 'checkbox',
+            //         name: 'Traffic',
+            //         placeholder: null,
+            //         groupClass: "form-group checkbox",
+            //         inputClass: "form-control checkbox",
+            //         isRequired: false,
+            //         value: "SMS",
+            //         checked: this.isChecked
+            //     },
+            //     {
+            //         id: 'el-0411',
+            //         type: 'checkbox',
+            //         name: 'Traffic',
+            //         placeholder: null,
+            //         groupClass: "form-group checkbox w-100",
+            //         inputClass: "form-control checkbox",
+            //         isRequired: false,
+            //         value: "Інше джерело трафіку",
+            //         checked: this.isChecked
+            //     },
+            // ]
+            // },
+            // {
+            // number: 5,
+            // question: "З якою вертикаллю працюєте?",
+            // class: "quiz-step flex column",
+            // inputWrapperClass: "form-group-wrapper flex wrap just-btwn",
+            // isMultiple: true,
+            // isActive: false,
+            // inputs: [
+            //     {
+            //         id: 'el-0501',
+            //         type: 'checkbox',
+            //         name: 'Vertical',
+            //         placeholder: null,
+            //         groupClass: "form-group checkbox",
+            //         inputClass: "form-control checkbox",
+            //         isRequired: false,
+            //         value: "Forex / Crypto",
+            //         checked: this.isChecked
+            //     },
+            //     {
+            //         id: 'el-0502',
+            //         type: 'checkbox',
+            //         name: 'Vertical',
+            //         placeholder: null,
+            //         groupClass: "form-group checkbox",
+            //         inputClass: "form-control checkbox",
+            //         isRequired: false,
+            //         value: "Gambling / Betting",
+            //         checked: this.isChecked
+            //     },
+            //     {
+            //         id: 'el-0503',
+            //         type: 'checkbox',
+            //         name: 'Vertical',
+            //         placeholder: null,
+            //         groupClass: "form-group checkbox",
+            //         inputClass: "form-control checkbox",
+            //         isRequired: false,
+            //         value: "Adult / Dating",
+            //         checked: this.isChecked
+            //     },
+            //     {
+            //         id: 'el-0504',
+            //         type: 'checkbox',
+            //         name: 'Vertical',
+            //         placeholder: null,
+            //         groupClass: "form-group checkbox",
+            //         inputClass: "form-control checkbox",
+            //         isRequired: false,
+            //         value: "NFT",
+            //         checked: this.isChecked
+            //     },
+            //     {
+            //         id: 'el-0505',
+            //         type: 'checkbox',
+            //         name: 'Vertical',
+            //         placeholder: null,
+            //         groupClass: "form-group checkbox",
+            //         inputClass: "form-control checkbox",
+            //         isRequired: false,
+            //         value: "COD",
+            //         checked: this.isChecked
+            //     },
+            //     {
+            //         id: 'el-0506',
+            //         type: 'checkbox',
+            //         name: 'Vertical',
+            //         placeholder: null,
+            //         groupClass: "form-group checkbox",
+            //         inputClass: "form-control checkbox",
+            //         isRequired: false,
+            //         value: "Insurance",
+            //         checked: this.isChecked
+            //     },
+            //     {
+            //         id: 'el-0507',
+            //         type: 'checkbox',
+            //         name: 'Vertical',
+            //         placeholder: null,
+            //         groupClass: "form-group checkbox",
+            //         inputClass: "form-control checkbox",
+            //         isRequired: false,
+            //         value: "Gaming",
+            //         checked: this.isChecked
+            //     },
+            //     {
+            //         id: 'el-0508',
+            //         type: 'checkbox',
+            //         name: 'Vertical',
+            //         placeholder: null,
+            //         groupClass: "form-group checkbox",
+            //         inputClass: "form-control checkbox",
+            //         isRequired: false,
+            //         value: "Other",
+            //         checked: this.isChecked
+            //     },
+            // ]
+            // },
             {
-            number: 1,
-            question: "Вкажіть ваше ім’я або нікнейм",
-            class: "quiz-step flex column",
-            inputWrapperClass: "null",
-            isMultiple: false,
-            isActive: true,
-            inputs: [
-                {
-                    id: 'el-0101',
-                    type: 'text',
-                    name: 'Name',
-                    placeholder: "Введіть ваше ім’я або нікнейм",
-                    groupClass: "form-group",
-                    inputClass: "form-control text",
-                    isRequired: true,
-                    value: null,
-                    checked: this.isChecked
-                }
-            ]
+                number: 6,
+                question: "Вкажіть рекламодавців, з якими працюєте",
+                class: "quiz-step flex column",
+                inputWrapperClass: "null",
+                isMultiple: false,
+                isList: true,
+                isActive: true,
+                inputs: [
+                    {
+                        id: 'el-0601',
+                        type: 'text',
+                        name: 'Advertiser',
+                        placeholder: "Введіть назви рекламодавців",
+                        groupClass: "form-group",
+                        inputClass: "form-control adv-input",
+                        isRequired: false,
+                        value: null,
+                        checked: this.isChecked
+                    }
+                ],
             },
             {
-            number: 2,
-            question: "Вкажіть зручний метод зв'язку",
-            class: "quiz-step flex column",
-            inputWrapperClass: "form-group-wrapper flex wrap just-btwn",
-            isMultiple: false,
-            isActive: false,
-            inputs: [
-                {
-                    id: 'el-0201',
-                    type: 'radio',
-                    name: 'Connection',
-                    placeholder: null,
-                    groupClass: "form-group radio",
-                    inputClass: "form-control radio",
-                    isRequired: false,
-                    value: "Skype",
-                    checked: this.isChecked
-                },
-                {
-                    id: 'el-0202',
-                    type: 'radio',
-                    name: 'Connection',
-                    placeholder: null,
-                    groupClass: "form-group radio",
-                    inputClass: "form-control radio",
-                    isRequired: false,
-                    value: "Telegram",
-                    checked: this.isChecked
-                },
-                {
-                    id: 'el-0203',
-                    type: 'radio',
-                    name: 'Connection',
-                    placeholder: null,
-                    groupClass: "form-group radio",
-                    inputClass: "form-control radio",
-                    isRequired: false,
-                    value: "WeChat",
-                    checked: this.isChecked
-                },
-                {
-                    id: 'el-0204',
-                    type: 'radio',
-                    name: 'Connection',
-                    placeholder: null,
-                    groupClass: "form-group radio",
-                    inputClass: "form-control radio",
-                    isRequired: false,
-                    value: "WhatsApp",
-                    checked: this.isChecked
-                },
-            ]
-            },
-            {
-            number: 3,
-            question: "Вкажіть ваш email",
-            class: "quiz-step flex column",
-            inputWrapperClass: "null",
-            isMultiple: false,
-            isActive: false,
-            inputs: [
-                {
-                    id: 'el-0301',
-                    type: 'email',
-                    name: 'Email',
-                    placeholder: "Введіть ваш email",
-                    groupClass: "form-group",
-                    inputClass: "form-control email",
-                    isRequired: true,
-                    value: null,
-                    checked: this.isChecked
-                }
-            ]
-            },
-            {
-            number: 4,
-            question: "Вкажіть ваше джерело трафіку",
-            class: "quiz-step flex column",
-            inputWrapperClass: "form-group-wrapper flex wrap just-btwn",
-            isMultiple: true,
-            isActive: false,
-            inputs: [
-                {
-                    id: 'el-0401',
-                    type: 'checkbox',
-                    name: 'Traffic',
-                    placeholder: null,
-                    groupClass: "form-group checkbox",
-                    inputClass: "form-control checkbox",
-                    isRequired: false,
-                    value: "Facebook",
-                    checked: this.isChecked
-                },
-                {
-                    id: 'el-0402',
-                    type: 'checkbox',
-                    name: 'Traffic',
-                    placeholder: null,
-                    groupClass: "form-group checkbox",
-                    inputClass: "form-control checkbox",
-                    isRequired: false,
-                    value: "Google",
-                    checked: this.isChecked
-                },
-                {
-                    id: 'el-0403',
-                    type: 'checkbox',
-                    name: 'Traffic',
-                    placeholder: null,
-                    groupClass: "form-group checkbox",
-                    inputClass: "form-control checkbox",
-                    isRequired: false,
-                    value: "Native (Teaser)",
-                    checked: this.isChecked
-                },
-                {
-                    id: 'el-0404',
-                    type: 'checkbox',
-                    name: 'Traffic',
-                    placeholder: null,
-                    groupClass: "form-group checkbox",
-                    inputClass: "form-control checkbox",
-                    isRequired: false,
-                    value: "Email",
-                    checked: this.isChecked
-                },
-                {
-                    id: 'el-0405',
-                    type: 'checkbox',
-                    name: 'Traffic',
-                    placeholder: null,
-                    groupClass: "form-group checkbox",
-                    inputClass: "form-control checkbox",
-                    isRequired: false,
-                    value: "Push",
-                    checked: this.isChecked
-                },
-                {
-                    id: 'el-0406',
-                    type: 'checkbox',
-                    name: 'Traffic',
-                    placeholder: null,
-                    groupClass: "form-group checkbox",
-                    inputClass: "form-control checkbox",
-                    isRequired: false,
-                    value: "Pop",
-                    checked: this.isChecked
-                },
-                {
-                    id: 'el-0407',
-                    type: 'checkbox',
-                    name: 'Traffic',
-                    placeholder: null,
-                    groupClass: "form-group checkbox",
-                    inputClass: "form-control checkbox",
-                    isRequired: false,
-                    value: "In-app",
-                    checked: this.isChecked
-                },
-                {
-                    id: 'el-0408',
-                    type: 'checkbox',
-                    name: 'Traffic',
-                    placeholder: null,
-                    groupClass: "form-group checkbox",
-                    inputClass: "form-control checkbox",
-                    isRequired: false,
-                    value: "TikTok",
-                    checked: this.isChecked
-                },
-                {
-                    id: 'el-0409',
-                    type: 'checkbox',
-                    name: 'Traffic',
-                    placeholder: null,
-                    groupClass: "form-group checkbox",
-                    inputClass: "form-control checkbox",
-                    isRequired: false,
-                    value: "Telegram",
-                    checked: this.isChecked
-                },
-                {
-                    id: 'el-0410',
-                    type: 'checkbox',
-                    name: 'Traffic',
-                    placeholder: null,
-                    groupClass: "form-group checkbox",
-                    inputClass: "form-control checkbox",
-                    isRequired: false,
-                    value: "SMS",
-                    checked: this.isChecked
-                },
-                {
-                    id: 'el-0411',
-                    type: 'checkbox',
-                    name: 'Traffic',
-                    placeholder: null,
-                    groupClass: "form-group checkbox w-100",
-                    inputClass: "form-control checkbox",
-                    isRequired: false,
-                    value: "Інше джерело трафіку",
-                    checked: this.isChecked
-                },
-            ]
-            },
-            {
-            number: 5,
-            question: "З якою вертикаллю працюєте?",
-            class: "quiz-step flex column",
-            inputWrapperClass: "form-group-wrapper flex wrap just-btwn",
-            isMultiple: true,
-            isActive: false,
-            inputs: [
-                {
-                    id: 'el-0501',
-                    type: 'checkbox',
-                    name: 'Vertical',
-                    placeholder: null,
-                    groupClass: "form-group checkbox",
-                    inputClass: "form-control checkbox",
-                    isRequired: false,
-                    value: "Forex / Crypto",
-                    checked: this.isChecked
-                },
-                {
-                    id: 'el-0502',
-                    type: 'checkbox',
-                    name: 'Vertical',
-                    placeholder: null,
-                    groupClass: "form-group checkbox",
-                    inputClass: "form-control checkbox",
-                    isRequired: false,
-                    value: "Gambling / Betting",
-                    checked: this.isChecked
-                },
-                {
-                    id: 'el-0503',
-                    type: 'checkbox',
-                    name: 'Vertical',
-                    placeholder: null,
-                    groupClass: "form-group checkbox",
-                    inputClass: "form-control checkbox",
-                    isRequired: false,
-                    value: "Adult / Dating",
-                    checked: this.isChecked
-                },
-                {
-                    id: 'el-0504',
-                    type: 'checkbox',
-                    name: 'Vertical',
-                    placeholder: null,
-                    groupClass: "form-group checkbox",
-                    inputClass: "form-control checkbox",
-                    isRequired: false,
-                    value: "NFT",
-                    checked: this.isChecked
-                },
-                {
-                    id: 'el-0505',
-                    type: 'checkbox',
-                    name: 'Vertical',
-                    placeholder: null,
-                    groupClass: "form-group checkbox",
-                    inputClass: "form-control checkbox",
-                    isRequired: false,
-                    value: "COD",
-                    checked: this.isChecked
-                },
-                {
-                    id: 'el-0506',
-                    type: 'checkbox',
-                    name: 'Vertical',
-                    placeholder: null,
-                    groupClass: "form-group checkbox",
-                    inputClass: "form-control checkbox",
-                    isRequired: false,
-                    value: "Insurance",
-                    checked: this.isChecked
-                },
-                {
-                    id: 'el-0507',
-                    type: 'checkbox',
-                    name: 'Vertical',
-                    placeholder: null,
-                    groupClass: "form-group checkbox",
-                    inputClass: "form-control checkbox",
-                    isRequired: false,
-                    value: "Gaming",
-                    checked: this.isChecked
-                },
-                {
-                    id: 'el-0508',
-                    type: 'checkbox',
-                    name: 'Vertical',
-                    placeholder: null,
-                    groupClass: "form-group checkbox",
-                    inputClass: "form-control checkbox",
-                    isRequired: false,
-                    value: "Other",
-                    checked: this.isChecked
-                },
-            ]
-            },
-            {
-            number: 6,
-            question: "Вкажіть рекламодавців, з якими працюєте",
-            class: "quiz-step flex column",
-            inputWrapperClass: "null",
-            isMultiple: false,
-            isList: true,
-            isActive: false,
-            inputs: [
-                {
-                    id: 'el-0601',
-                    type: 'text',
-                    name: 'Advertiser',
-                    placeholder: "Введіть назви рекламодавців",
-                    groupClass: "form-group",
-                    inputClass: "form-control adv-input",
-                    isRequired: false,
-                    value: null,
-                    checked: this.isChecked
-                }
-            ]
-            },
-            {
-            number: 7,
-            question: "Вкажіть кількість баєрів у команді",
-            class: "quiz-step flex column",
-            inputWrapperClass: "null",
-            isMultiple: false,
-            isList: false,
-            isActive: false,
-            inputs: [
-                {
-                    id: 'el-0701',
-                    type: 'number',
-                    name: 'Team',
-                    placeholder: "Введіть кількість баєрів",
-                    groupClass: "form-group",
-                    inputClass: "form-control text number",
-                    isRequired: false,
-                    value: null,
-                    checked: this.isChecked
-                }
-            ]
+                number: 7,
+                question: "Вкажіть кількість баєрів у команді",
+                class: "quiz-step flex column",
+                inputWrapperClass: "null",
+                isMultiple: false,
+                isList: false,
+                isActive: false,
+                inputs: [
+                    {
+                        id: 'el-0701',
+                        type: 'number',
+                        name: 'Team',
+                        placeholder: "Введіть кількість баєрів",
+                        groupClass: "form-group",
+                        inputClass: "form-control text number",
+                        isRequired: false,
+                        value: null,
+                        checked: this.isChecked
+                    }
+                ]
             },
         ],
     }
@@ -528,7 +542,8 @@ export default {
         this.$el.querySelector('.btn.btn-next').style.opacity = '0.5';
     },
     inputChanging(e) {
-        if (e.target.type === "text") {
+
+        if (e.target.name === "Name" || e.target.name === "Login") {
             if (e.target.value.trim() !== '' && e.target.value.trim() !== ' ') {
                 this.btnAble();
                 e.target.classList.add('valid');
@@ -537,7 +552,8 @@ export default {
                 e.target.classList.remove('valid');
             }
         }
-        if (e.target.type === "email") {
+
+        if (e.target.name === "Email") {
             if (e.target.value.trim() !== '' && e.target.value.trim() !== ' ') {
                 this.btnAble();
                 e.target.classList.add('valid');
@@ -546,6 +562,7 @@ export default {
                 e.target.classList.remove('valid');
             }
         }
+
         if (e.target.type === "checkbox") {
             if (e.target.checked) {
                 this.btnAble();
@@ -567,6 +584,14 @@ export default {
                     }
                 } 
             } 
+        }
+
+        if (e.target.name === 'Advertiser') {
+            if (e.target.value) {
+                this.isAddBtnDisabled = false;
+            } else {
+                this.isAddBtnDisabled = true;
+            }
         }
     },
     inputClickHandler(e) {
@@ -592,7 +617,7 @@ export default {
             this.isChecked = false;
             this.isInputValidated = false;
             this.isNotTheFirstQuestion = true;
-            console.log(this.currentQuestion);
+            this.progressBarUpdate();
         } else {
             console.log('no switch!')
         }
@@ -607,10 +632,23 @@ export default {
             if (this.quizSteps[this.currentQuestion].number === 1) {
                 this.isNotTheFirstQuestion = false;
             }
-            console.log(this.currentQuestion);
+            this.progressBarUpdate();
         } else {
             return false;
         }
+    },
+    addBtnClick() {
+        this.addedItemsList.push(
+            {
+                id: Date.now(),
+                value: this.quizObject.Advertiser
+            }
+        ); 
+
+        console.log(this.addedItemsList);
+        
+        this.isInputValidated = true;
+        this.btnAble();
     },
     dataRecording(event) {
         this.question = event.target.name;
@@ -625,10 +663,18 @@ export default {
             this.quizObject[this.question] = this.verticalCheckboxesChecked; 
         }
 
+        if (event.target.name === "Advertiser") {
+            // this.quizObject[this.question] = JSON.stringify(this.addedItemsList); 
+        }
+
         console.table(this.quizObject);
     },
-    addBtnClick() {
-        console.log('add-btn clicked!')
+    deleteAddedItem() {
+        console.log('delete item')
+    },
+    progressBarUpdate() {
+        this.$el.querySelector('.progress-bar-line').style.width = 100 / this.quizSteps.length * this.currentQuestion + '%';
+        this.$el.querySelector('.progress-percentage').innerText = Math.ceil(100 / this.quizSteps.length * this.currentQuestion) + '%';
     }
   }
 }

@@ -344,7 +344,49 @@
 }
 
 
-
+/*==== FOOTER =====================*/
+.footer {
+  width: 100%;
+  background-color: transparent;
+}
+.progress-wrapper {
+  border-top: 1px solid #222222;
+  padding: 1.5rem 0;
+}
+.footer-text {
+  font-weight: 300;
+  font-size: 1rem;
+  line-height: 1.5;
+  color: #BFBFBF;
+  margin-right: 10px;
+}
+.footer-text span {
+  font-weight: 700;
+  color: #b8e994;
+}
+.progress-bar {
+  position: relative;
+  width: 100%;
+  height: 0.5rem;
+  background-color: #242424;
+  border-radius: 8px;
+  overflow: hidden;
+}
+.progress-bar-line {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 0;
+  background: repeating-linear-gradient(
+  -55deg,
+  #EE9534,
+  #EE9534 6px,
+  #FBB564 6px,
+  #FBB564 12px
+  );
+  transition: .3s;
+}
 
 
 /*==== THANKYOU MODAL =============*/
