@@ -49,7 +49,13 @@
                                     <label :for="input.id">
                                         {{ input.value }}
                                     </label>
-                                    <button v-if="quizStep.isList" class="add-btn" title="Додати"></button>
+                                    <button 
+                                        v-if="quizStep.isList" 
+                                        class="add-btn" 
+                                        title="Додати"
+                                        @click.prevent="addBtnClick"
+                                        :disabled="isAddBtnDisabled"
+                                    ></button>
                                 </div>
                             </div>
                             <div class="addition-input-wrapper" v-if="isChecked">
@@ -138,6 +144,7 @@ export default {
         question: '',
         answer: '',
         quizObject: {},
+        isAddBtnDisabled: true,
         quizSteps: [
             {
             number: 1,
@@ -531,7 +538,7 @@ export default {
             }
         }
         if (e.target.type === "email") {
-            if (e.target.value.trim() !== '' && e.target.value.trim() !== ' ' && e.target.value.includes('@')) {
+            if (e.target.value.trim() !== '' && e.target.value.trim() !== ' ') {
                 this.btnAble();
                 e.target.classList.add('valid');
             } else {
@@ -540,30 +547,30 @@ export default {
             }
         }
         if (e.target.type === "checkbox") {
-            if (e.target.checked && e.target.name === "Traffic") {
-                console.log("Traffic changed");
+            if (e.target.checked) {
                 this.btnAble();
-                this.trafficCheckboxesChecked.push(e.target.value);
-            } else {
-                this.trafficCheckboxesChecked.splice(this.trafficCheckboxesChecked.indexOf(e.target.value), 1);
-                if (this.trafficCheckboxesChecked.length === 0) {
-                    this.btnDisable();
+                if (e.target.name === "Traffic") {
+                    this.trafficCheckboxesChecked.push(e.target.value);
+                } else if (e.target.name === "Vertical") {
+                    this.verticalCheckboxesChecked.push(e.target.value);
                 }
-            }
-            if (e.target.checked && e.target.name === "Vertical") {
-                this.btnAble();
-                this.verticalCheckboxesChecked.push(e.target.value);
-            } else {
-                this.verticalCheckboxesChecked.splice(this.verticalCheckboxesChecked.indexOf(e.target.value), 1);
-                if (this.verticalCheckboxesChecked.length === 0) {
-                    this.btnDisable();
-                }
-            }
+            } else if (this.trafficCheckboxesChecked.length || this.verticalCheckboxesChecked.length) {
+                if (e.target.name === "Traffic") {
+                    this.trafficCheckboxesChecked.splice(this.trafficCheckboxesChecked.indexOf(e.target.value), 1);
+                    if (!this.trafficCheckboxesChecked.length) {
+                        this.btnDisable();
+                    }
+                } else if (e.target.name === "Vertical") {
+                    this.verticalCheckboxesChecked.splice(this.verticalCheckboxesChecked.indexOf(e.target.value), 1);
+                    if (!this.verticalCheckboxesChecked.length) {
+                        this.btnDisable();
+                    }
+                } 
+            } 
         }
     },
     inputClickHandler(e) {
         if (e.target.type == "text") {
-            
             console.log('text!');
         } else if (e.target.type == "radio") {
             console.log('radio!');
@@ -619,6 +626,9 @@ export default {
         }
 
         console.table(this.quizObject);
+    },
+    addBtnClick() {
+        console.log('add-btn clicked!')
     }
   }
 }

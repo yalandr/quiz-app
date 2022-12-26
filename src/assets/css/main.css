@@ -258,6 +258,9 @@
   background-position: center center;
   background-size: 0.85rem;
 }
+.add-btn:disabled {
+  opacity: .5
+}
 
 /*==== ADDITION INPUT ================*/
 .addition-input-wrapper {
