@@ -1,7 +1,7 @@
 <template>
 <div class="main-wrapper flex column">
-  <Header />
-  <main class="main">
+    <Header />
+        <main class="main">
             <form 
                 class="main-form" 
                 id="mainForm" 
@@ -134,7 +134,7 @@
             </div>
         </footer>
         <MessageModal v-if="isModalActive"></MessageModal>
-</div>
+    </div>
 </template>
 
 <script>
@@ -655,18 +655,22 @@ export default {
         this.quizSteps[this.currentQuestion].isListMessageVisible = true;
     },
     addBtnClick() {
-        this.addedItemsList.push(
-            {
-                id: this.$el.querySelector('.adv-input').value,
-                value: this.$el.querySelector('.adv-input').value
-            }
-        ); 
+        if (this.$el.querySelector('.adv-input').value) {
+            this.addedItemsList.push(
+                {
+                    id: this.$el.querySelector('.adv-input').value,
+                    value: this.$el.querySelector('.adv-input').value
+                }
+            ); 
 
-        this.addedItemsValuesList.push(this.$el.querySelector('.adv-input').value);
-        
-        this.isInputValidated = true;
-        this.listMessageHiding();
-        this.btnAble();
+            this.addedItemsValuesList.push(this.$el.querySelector('.adv-input').value);
+            
+            this.isInputValidated = true;
+            this.listMessageHiding();
+            this.btnAble();
+        } else {
+            return false;
+        }
     },
     deleteAddedItem(e) {
 
@@ -675,12 +679,12 @@ export default {
         this.addedItemsList.splice(itemToDelete, 1);
         this.addedItemsValuesList.splice(itemToDelete, 1);
 
-        console.table(this.quizObject);
-
         if (this.addedItemsValuesList.length === 0) {
             this.btnDisable();
             this.listMessageShowing();
         }
+
+        console.table(this.quizObject);
     },
     dataRecording(event) {
         this.question = event.target.name;
