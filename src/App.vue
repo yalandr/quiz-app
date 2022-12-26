@@ -28,7 +28,7 @@
                     </div>
                     <div class="answer-wrapper">
                         <div class="container">
-                            <p class="text-secondary list-message" v-if="quizStep.isList">
+                            <p class="text-secondary list-message" v-if="quizStep.isListMessageVisible">
                                 Тут буде перелік рекламодавців ...
                             </p>
                             <ul class="added-items-list" v-if="quizStep.isList">
@@ -36,6 +36,7 @@
                                     class="added-list-item flex center just-btwn"
                                     v-for="addedItem in addedItemsList"
                                     :key="addedItem.id"
+                                    :id="addedItem.id"
                                 >
                                     {{ addedItem.value }}
                                     <button 
@@ -159,6 +160,7 @@ export default {
         quizObject: {},
         isAddBtnDisabled: true,
         addedItemsList: [],
+        addedItemsValuesList: [],
         quizSteps: [
             // {
             //     number: 1,
@@ -492,6 +494,7 @@ export default {
                 inputWrapperClass: "null",
                 isMultiple: false,
                 isList: true,
+                isListMessageVisible: true,
                 isActive: true,
                 inputs: [
                     {
@@ -587,7 +590,7 @@ export default {
         }
 
         if (e.target.name === 'Advertiser') {
-            if (e.target.value) {
+            if (e.target.value.trim()) {
                 this.isAddBtnDisabled = false;
             } else {
                 this.isAddBtnDisabled = true;
@@ -637,6 +640,12 @@ export default {
             return false;
         }
     },
+    listMessageHiding() {
+        this.quizSteps[this.currentQuestion].isListMessageVisible = false;
+    },
+    listMessageShowing() {
+        this.quizSteps[this.currentQuestion].isListMessageVisible = true;
+    },
     addBtnClick() {
         this.addedItemsList.push(
             {
@@ -644,10 +653,9 @@ export default {
                 value: this.quizObject.Advertiser
             }
         ); 
-
-        console.log(this.addedItemsList);
         
         this.isInputValidated = true;
+        this.listMessageHiding();
         this.btnAble();
     },
     dataRecording(event) {
@@ -664,13 +672,22 @@ export default {
         }
 
         if (event.target.name === "Advertiser") {
-            // this.quizObject[this.question] = JSON.stringify(this.addedItemsList); 
+            // this.quizObject[this.question] += this.addedItemsValuesList; 
         }
 
         console.table(this.quizObject);
     },
-    deleteAddedItem() {
-        console.log('delete item')
+    deleteAddedItem(e) {
+        if (e.target.classList.contains("delete-btn")) {
+            e.target.parentElement.remove();
+            let itemToDelete = this.addedItemsList.indexOf(e.target.parentElement.id);
+            this.addedItemsList.splice(itemToDelete, 1);
+            if (!this.addedItemsList.length) {
+                this.btnDisable();
+                this.isInputValidated = false;
+                this.listMessageShowing();
+            }
+        }
     },
     progressBarUpdate() {
         this.$el.querySelector('.progress-bar-line').style.width = 100 / this.quizSteps.length * this.currentQuestion + '%';
