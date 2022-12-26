@@ -596,6 +596,14 @@ export default {
                 this.isAddBtnDisabled = true;
             }
         }
+
+        if (e.target.name === 'Team') {
+            if (e.target.value.trim()) {
+                this.btnAble();
+            } else {
+                this.btnDisable();
+            }
+        }
     },
     inputClickHandler(e) {
         if (e.target.type == "text") {
