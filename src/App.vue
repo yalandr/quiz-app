@@ -238,25 +238,25 @@ export default {
                 ]
             },
             {
-            number: 3,
-            question: "Вкажіть ваш email",
-            class: "quiz-step flex column",
-            inputWrapperClass: "null",
-            isMultiple: false,
-            isActive: false,
-            inputs: [
-                {
-                    id: 'el-0301',
-                    type: 'email',
-                    name: 'Email',
-                    placeholder: "Введіть ваш email",
-                    groupClass: "form-group",
-                    inputClass: "form-control email",
-                    isRequired: true,
-                    value: null,
-                    checked: this.isChecked
-                }
-            ]
+                number: 3,
+                question: "Вкажіть ваш email",
+                class: "quiz-step flex column",
+                inputWrapperClass: "null",
+                isMultiple: false,
+                isActive: false,
+                inputs: [
+                    {
+                        id: 'el-0301',
+                        type: 'email',
+                        name: 'Email',
+                        placeholder: "Введіть ваш email",
+                        groupClass: "form-group",
+                        inputClass: "form-control email",
+                        isRequired: true,
+                        value: null,
+                        checked: this.isChecked
+                    }
+                ]
             },
             {
                 number: 4,
@@ -390,102 +390,102 @@ export default {
                 ]
             },
             {
-            number: 5,
-            question: "З якою вертикаллю працюєте?",
-            class: "quiz-step flex column",
-            inputWrapperClass: "form-group-wrapper flex wrap just-btwn",
-            isMultiple: true,
-            isActive: false,
-            inputs: [
-                {
-                    id: 'el-0501',
-                    type: 'checkbox',
-                    name: 'Vertical',
-                    placeholder: null,
-                    groupClass: "form-group checkbox",
-                    inputClass: "form-control checkbox",
-                    isRequired: false,
-                    value: "Forex / Crypto",
-                    checked: this.isChecked
-                },
-                {
-                    id: 'el-0502',
-                    type: 'checkbox',
-                    name: 'Vertical',
-                    placeholder: null,
-                    groupClass: "form-group checkbox",
-                    inputClass: "form-control checkbox",
-                    isRequired: false,
-                    value: "Gambling / Betting",
-                    checked: this.isChecked
-                },
-                {
-                    id: 'el-0503',
-                    type: 'checkbox',
-                    name: 'Vertical',
-                    placeholder: null,
-                    groupClass: "form-group checkbox",
-                    inputClass: "form-control checkbox",
-                    isRequired: false,
-                    value: "Adult / Dating",
-                    checked: this.isChecked
-                },
-                {
-                    id: 'el-0504',
-                    type: 'checkbox',
-                    name: 'Vertical',
-                    placeholder: null,
-                    groupClass: "form-group checkbox",
-                    inputClass: "form-control checkbox",
-                    isRequired: false,
-                    value: "NFT",
-                    checked: this.isChecked
-                },
-                {
-                    id: 'el-0505',
-                    type: 'checkbox',
-                    name: 'Vertical',
-                    placeholder: null,
-                    groupClass: "form-group checkbox",
-                    inputClass: "form-control checkbox",
-                    isRequired: false,
-                    value: "COD",
-                    checked: this.isChecked
-                },
-                {
-                    id: 'el-0506',
-                    type: 'checkbox',
-                    name: 'Vertical',
-                    placeholder: null,
-                    groupClass: "form-group checkbox",
-                    inputClass: "form-control checkbox",
-                    isRequired: false,
-                    value: "Insurance",
-                    checked: this.isChecked
-                },
-                {
-                    id: 'el-0507',
-                    type: 'checkbox',
-                    name: 'Vertical',
-                    placeholder: null,
-                    groupClass: "form-group checkbox",
-                    inputClass: "form-control checkbox",
-                    isRequired: false,
-                    value: "Gaming",
-                    checked: this.isChecked
-                },
-                {
-                    id: 'el-0508',
-                    type: 'checkbox',
-                    name: 'Vertical',
-                    placeholder: null,
-                    groupClass: "form-group checkbox",
-                    inputClass: "form-control checkbox",
-                    isRequired: false,
-                    value: "Other",
-                    checked: this.isChecked
-                },
-            ]
+                number: 5,
+                question: "З якою вертикаллю працюєте?",
+                class: "quiz-step flex column",
+                inputWrapperClass: "form-group-wrapper flex wrap just-btwn",
+                isMultiple: true,
+                isActive: false,
+                inputs: [
+                    {
+                        id: 'el-0501',
+                        type: 'checkbox',
+                        name: 'Vertical',
+                        placeholder: null,
+                        groupClass: "form-group checkbox",
+                        inputClass: "form-control checkbox",
+                        isRequired: false,
+                        value: "Forex / Crypto",
+                        checked: this.isChecked
+                    },
+                    {
+                        id: 'el-0502',
+                        type: 'checkbox',
+                        name: 'Vertical',
+                        placeholder: null,
+                        groupClass: "form-group checkbox",
+                        inputClass: "form-control checkbox",
+                        isRequired: false,
+                        value: "Gambling / Betting",
+                        checked: this.isChecked
+                    },
+                    {
+                        id: 'el-0503',
+                        type: 'checkbox',
+                        name: 'Vertical',
+                        placeholder: null,
+                        groupClass: "form-group checkbox",
+                        inputClass: "form-control checkbox",
+                        isRequired: false,
+                        value: "Adult / Dating",
+                        checked: this.isChecked
+                    },
+                    {
+                        id: 'el-0504',
+                        type: 'checkbox',
+                        name: 'Vertical',
+                        placeholder: null,
+                        groupClass: "form-group checkbox",
+                        inputClass: "form-control checkbox",
+                        isRequired: false,
+                        value: "NFT",
+                        checked: this.isChecked
+                    },
+                    {
+                        id: 'el-0505',
+                        type: 'checkbox',
+                        name: 'Vertical',
+                        placeholder: null,
+                        groupClass: "form-group checkbox",
+                        inputClass: "form-control checkbox",
+                        isRequired: false,
+                        value: "COD",
+                        checked: this.isChecked
+                    },
+                    {
+                        id: 'el-0506',
+                        type: 'checkbox',
+                        name: 'Vertical',
+                        placeholder: null,
+                        groupClass: "form-group checkbox",
+                        inputClass: "form-control checkbox",
+                        isRequired: false,
+                        value: "Insurance",
+                        checked: this.isChecked
+                    },
+                    {
+                        id: 'el-0507',
+                        type: 'checkbox',
+                        name: 'Vertical',
+                        placeholder: null,
+                        groupClass: "form-group checkbox",
+                        inputClass: "form-control checkbox",
+                        isRequired: false,
+                        value: "Gaming",
+                        checked: this.isChecked
+                    },
+                    {
+                        id: 'el-0508',
+                        type: 'checkbox',
+                        name: 'Vertical',
+                        placeholder: null,
+                        groupClass: "form-group checkbox",
+                        inputClass: "form-control checkbox",
+                        isRequired: false,
+                        value: "Other",
+                        checked: this.isChecked
+                    },
+                ]
             },
             {
                 number: 6,
@@ -532,6 +532,16 @@ export default {
                     }
                 ]
             },
+            {
+                number: null,
+                question: "Results",
+                class: "quiz-step flex column",
+                inputWrapperClass: "null",
+                isMultiple: false,
+                isList: false,
+                isActive: false,
+                inputs: []
+            },
         ],
     }
   },
@@ -545,43 +555,46 @@ export default {
         this.$el.querySelector('.btn.btn-next').style.opacity = '0.5';
     },
     inputChanging(e) {
+        let currentInput = e.target;
 
-        if (e.target.name === "Name" || e.target.name === "Login") {
-            if (e.target.value.trim() !== '' && e.target.value.trim() !== ' ') {
+        console.log(currentInput.value);
+
+        if (currentInput.name === "Name" || currentInput.name === "Login") {
+            if (currentInput.value.trim() !== '' && currentInput.value.trim() !== ' ') {
                 this.btnAble();
-                e.target.classList.add('valid');
+                currentInput.classList.add('valid');
             } else {
                 this.btnDisable();
-                e.target.classList.remove('valid');
+                currentInput.classList.remove('valid');
             }
         }
 
-        if (e.target.name === "Email") {
-            if (e.target.value.trim() !== '' && e.target.value.trim() !== ' ') {
+        if (currentInput.name === "Email") {
+            if (currentInput.value.trim() !== '' && currentInput.value.trim() !== ' ') {
                 this.btnAble();
-                e.target.classList.add('valid');
+                currentInput.classList.add('valid');
             } else {
                 this.btnDisable();
-                e.target.classList.remove('valid');
+                currentInput.classList.remove('valid');
             }
         }
 
-        if (e.target.type === "checkbox") {
-            if (e.target.checked) {
+        if (currentInput.type === "checkbox") {
+            if (currentInput.checked) {
                 this.btnAble();
-                if (e.target.name === "Traffic") {
-                    this.trafficCheckboxesChecked.push(e.target.value);
-                } else if (e.target.name === "Vertical") {
-                    this.verticalCheckboxesChecked.push(e.target.value);
+                if (currentInput.name === "Traffic") {
+                    this.trafficCheckboxesChecked.push(currentInput.value);
+                } else if (currentInput.name === "Vertical") {
+                    this.verticalCheckboxesChecked.push(currentInput.value);
                 }
             } else if (this.trafficCheckboxesChecked.length || this.verticalCheckboxesChecked.length) {
-                if (e.target.name === "Traffic") {
-                    this.trafficCheckboxesChecked.splice(this.trafficCheckboxesChecked.indexOf(e.target.value), 1);
+                if (currentInput.name === "Traffic") {
+                    this.trafficCheckboxesChecked.splice(this.trafficCheckboxesChecked.indexOf(currentInput.value), 1);
                     if (!this.trafficCheckboxesChecked.length) {
                         this.btnDisable();
                     }
-                } else if (e.target.name === "Vertical") {
-                    this.verticalCheckboxesChecked.splice(this.verticalCheckboxesChecked.indexOf(e.target.value), 1);
+                } else if (currentInput.name === "Vertical") {
+                    this.verticalCheckboxesChecked.splice(this.verticalCheckboxesChecked.indexOf(currentInput.value), 1);
                     if (!this.verticalCheckboxesChecked.length) {
                         this.btnDisable();
                     }
@@ -589,16 +602,16 @@ export default {
             } 
         }
 
-        if (e.target.name === 'Advertiser') {
-            if (e.target.value.trim()) {
+        if (currentInput.name === 'Advertiser') {
+            if (currentInput.value.trim()) {
                 this.isAddBtnDisabled = false;
             } else {
                 this.isAddBtnDisabled = true;
             }
         }
 
-        if (e.target.name === 'Team') {
-            if (e.target.value.trim()) {
+        if (currentInput.name === 'Team') {
+            if (currentInput.value.trim()) {
                 this.btnAble();
             } else {
                 this.btnDisable();
@@ -606,18 +619,18 @@ export default {
         }
     },
     inputClickHandler(e) {
-        if (e.target.type == "text") {
-            console.log('text!');
-        } else if (e.target.type == "radio") {
-            console.log('radio!');
+        if (e.target.type == "radio") {
             this.isChecked = true;
-        } else if (e.target.type == "email") {
-            console.log('email');
-        } else if (e.target.type == "checkbox") {
+        } 
+        // else if (e.target.type == "email") {
+        //     console.log('email');
+        // } 
+        else if (e.target.type == "checkbox") {
             this.btnAble();
-        } else if (e.target.type == "number") {
-            console.log('number');
-        }
+        } 
+        // else if (e.target.type == "number") {
+        //     console.log('number');
+        // }
     },
     switchToNextQuestion() {
         if (this.quizSteps[this.currentQuestion].number < this.quizSteps.length) {
