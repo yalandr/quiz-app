@@ -561,10 +561,11 @@ export default {
 
         if (currentInput.name === "Name" || currentInput.name === "Login") {
             if (currentInput.value.trim() !== '' && currentInput.value.trim() !== ' ') {
-                this.btnAble();
+                // this.btnAble();
                 currentInput.classList.add('valid');
+                this.$el.querySelector('.btn.btn-next').style.opacity = '1';
             } else {
-                this.btnDisable();
+                // this.btnDisable();
                 currentInput.classList.remove('valid');
             }
         }
